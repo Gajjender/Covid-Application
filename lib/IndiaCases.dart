@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
-
 import 'package:fl_chart/fl_chart.dart';
-
+import './Worldwide.dart';
+import './Statewise.dart';
 
 class IndiaCases extends StatelessWidget{
   final String confirmed,active,recovered,deaths,lastUpdatedTime,stateName;
@@ -14,6 +13,7 @@ class IndiaCases extends StatelessWidget{
      this.recovered,
      this.deaths,
      this.lastUpdatedTime,
+     this.isState,
      this.stateName});
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class IndiaCases extends StatelessWidget{
         title: Text("Covid_Application"),
       ),
       body: Column(
-        crossAxisAlignment: crossAxisAlignment.start,
-        chidlren: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Container(
             margin: EdgeInsets.only(left: 15,top: 15,right: 15),
             child: Card(
@@ -53,17 +53,17 @@ class IndiaCases extends StatelessWidget{
                                           showTitle: false,
                                           value: double.parse(active),
                                           color: Color.fromRGBO(25, 49, 103, 1), 
-                                          Title: "Active",   
+                                          title: "Active",   
                                         ),
                                         PieChartSectionData(
-                                         showTtile: false,
-                                         Title: "Recovered",
+                                         showTitle: false,
+                                         title: "Recovered",
                                          value: double.parse(recovered),
                                          color: Theme.of(context).primaryColor,
                                         ),
                                         PieChartSectionData(
                                           showTitle: false,
-                                          Title: "Deaths",
+                                          title: "Deaths",
                                           color: Color.fromRGBO(255, 77, 77, 1),
                                           value: double.parse(deaths),
                                         )
@@ -77,9 +77,9 @@ class IndiaCases extends StatelessWidget{
                             margin: EdgeInsets.only(left: 28),
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                             child: Column(
-                              mainAxisSize= MainAxisSize.max,
-                              mainAxisAlignment= MainAxisAlignment.end,
-                              crossAxisAlignment= CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
@@ -90,7 +90,7 @@ class IndiaCases extends StatelessWidget{
                                       width: 20,
                                     ),
                                     Text(
-                                      "Active"
+                                      "Active",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Theme.of(context).primaryColor,
@@ -107,7 +107,7 @@ class IndiaCases extends StatelessWidget{
                                       width: 20,
                                     ),
                                     Text(
-                                      "Deaths"
+                                      "Deaths",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Theme.of(context).primaryColor,
@@ -124,7 +124,7 @@ class IndiaCases extends StatelessWidget{
                                       width: 20,
                                     ),
                                     Text(
-                                      "Recovered"
+                                      "Recovered",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Theme.of(context).primaryColor,
@@ -181,8 +181,137 @@ class IndiaCases extends StatelessWidget{
                 ],
               )),
           Container(
-            //We'll Start from here tomorrow
-          )    
+            padding: EdgeInsets.all(15),
+            height: ((MediaQuery.of(context).size.height)-
+                     (MediaQuery.of(context).padding.top))*
+                  0.5,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Card(
+                    color: Color.fromRGBO(230, 230, 230, 1),
+                    elevation: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Confirmed",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 17),
+                        ),
+                        confirmed != null
+                            ? Text(
+                              confirmed,
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            )
+                            : Text("0"),
+                      ],      
+                    ),   
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Card(
+                    color: Color.fromRGBO(230, 230, 230, 1),
+                    elevation: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Active",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 17),
+                        ),
+                        active != null
+                            ? Text(
+                                active,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ) 
+                            : Text("0"),  
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: ((MediaQuery.of(context).size.height)-
+                     (MediaQuery.of(context).padding.top))*
+                0.2,             
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        color: Color.fromRGBO(230, 230, 230, 1),
+                        elevation: 5,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Recovered",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 17),
+                            ),
+                            recovered !=null
+                                ? Text(
+                                    recovered,
+                                    style: TextStyle(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  )
+                                : Text("0"),  
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        color: Color.fromRGBO(230, 230, 230, 1),
+                        elevation: 5,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Deaths",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 17),
+                            ),
+                            deaths != null
+                                ? Text(
+                                    deaths,
+                                    style: TextStyle(
+                                      color: Theme.of(context).primaryColor,a
+                                    )
+                                )
+                                : Text("0"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+          ),
+          //IndiaCases Code part is ended here 11/10 committing time 14:52
+        )
         ]
       ),
     );

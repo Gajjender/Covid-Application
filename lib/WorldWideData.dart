@@ -1,5 +1,4 @@
-
-
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -49,7 +48,7 @@ class _WorldWideState extends State<Worldwide>{
       appBar: AppBar(title: Text("Covid-Application")),
       body: dataFetched
           ? Column(
-              crossAxisAlignment= CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   margin:
@@ -138,7 +137,7 @@ class _WorldWideState extends State<Worldwide>{
                                           width: 20,
                                         ),
                                         Text(
-                                          "Deaths"
+                                          "Deaths",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Theme.of(context).primaryColor,
@@ -156,8 +155,8 @@ class _WorldWideState extends State<Worldwide>{
                                           width: 20,    
                                         ),
                                         Text(
-                                          "Recovered"
-                                          style: TextStyle(
+                                          "Recovered",
+                                          style : TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Theme.of(context).primaryColor,
                                           ),
@@ -193,7 +192,7 @@ class _WorldWideState extends State<Worldwide>{
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Confirmed"
+                          Text("Confirmed",
                               style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 color: Theme.of(context).primaryColor,
