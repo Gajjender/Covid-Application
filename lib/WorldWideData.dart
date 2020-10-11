@@ -83,22 +83,167 @@ class _WorldWideState extends State<Worldwide>{
                                               showTitle: false,
                                               value: double.parse(active),
                                               color: Color.fromRGBO(25, 49, 103, 1),
-                                              title: active,
+                                              title: "Active",
                                             ),
-                                            //We'll Start here by tomorrow 
-                                          ]    
-                                        )
+                                            PieChartSectionData(
+                                              showTitle: false,
+                                              title: "Recovered"
+                                              color: Theme.of(context).primaryColor,
+                                              value: double.parse(recovered),
+                                            ),
+                                            PieChartSectionData(
+                                              showTitle: false,
+                                              title: "Deaths",
+                                              color: Color.fromRGBO(
+                                                255, 77, 77, 1),
+                                              value:double.parse(active),
+                                            ),
+                                          ],    
+                                        ),
                                       ),
-                                      )
-                              ]
-                            ),         
-                          )
-                        )
-                      ]
-                    ),
+                                    )
+                                  : new Center(
+                                    child: new CircularProgressIndicator()),
+                              Container(
+                                margin: EdgeInsets.fromLTRB(30,0,0,10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment:
+                                         CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          color: Color.fromRGBO(25, 49, 103, 1),
+                                          height: 20,
+                                          width: 20,
+                                        ),
+                                        Text(
+                                         "Active", 
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context)
+                                                   .primaryColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          color: Color.fromRGBO(255, 77, 77, 1),
+                                          height: 20,
+                                          width: 20,
+                                        ),
+                                        Text(
+                                          "Deaths"
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context).primaryColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          color: 
+                                              Theme.of(context).primaryColor,
+                                          height: 20,
+                                          width: 20,    
+                                        ),
+                                        Text(
+                                          "Recovered"
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context).primaryColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ), 
+                            ],
+                          ), 
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ]
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+                height: ((MediaQuery.of(context).size.height)-
+                         (MediaQuery.of(context).padding.top)-
+                         (kToolbarHeight)-
+                         (kBottomNavigationBarHeight))*
+                        0.19,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                    child: Card(
+                      color: Color.fromRGBO(230, 230, 230, 1),
+                      elevation: 5,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Confirmed"
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 17)),
+                          cases!=null
+                          ? Text(
+                            confirm,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          )
+                        : Text("0")
+                  ],
+                ),
+              ),  
+            ),
+            Expanded(
+              flex: 1,
+              child: Card(
+                color: Color.fromRGBO(230, 230, 230, 1),
+                elevation: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Active",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 17)),
+                    active!= null
+                        ? Text(
+                            active,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          )
+                        : Text("0"),      
+                  ],
+                ),
+              ),
+            ), 
+          ],
+        ),
+      ),
+      Container(
+        //Today's Code end here
+      )
+              ),
+            ],
           )
     )
   }
