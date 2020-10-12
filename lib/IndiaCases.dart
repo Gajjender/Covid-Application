@@ -1,7 +1,7 @@
+import 'package:Covid_Application/StateWiseData.dart';
+import 'package:Covid_Application/WorldWideData.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import './Worldwide.dart';
-import './Statewise.dart';
 
 class IndiaCases extends StatelessWidget{
   final String confirmed,active,recovered,deaths,lastUpdatedTime,stateName;
@@ -47,7 +47,7 @@ class IndiaCases extends StatelessWidget{
                                       startDegreeOffset: 5,
                                       sectionsSpace: 0,
                                       centerSpaceRadius: 45,
-                                      borderData: F1BorderData(show: false),
+                                      borderData: FlBorderData(show: false),
                                       sections: [
                                         PieChartSectionData(
                                           showTitle: false,
@@ -299,7 +299,7 @@ class IndiaCases extends StatelessWidget{
                                 ? Text(
                                     deaths,
                                     style: TextStyle(
-                                      color: Theme.of(context).primaryColor,a
+                                      color: Theme.of(context).primaryColor,
                                     )
                                 )
                                 : Text("0"),
@@ -310,10 +310,92 @@ class IndiaCases extends StatelessWidget{
                   ],
                 ),
           ),
-          //IndiaCases Code part is ended here 11/10 committing time 14:52
-        )
-        ]
+          Container(
+            padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            height: ((MediaQuery.of(context).size.height)-
+                    (MediaQuery.of(context).padding.top))*
+                0.12,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Card(
+                    color: Color.fromRGBO(230, 230, 230, 1),
+                    elevation: 5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Last_Updated_Time",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 17), 
+                        ),
+                        lastUpdatedTime != null
+                            ? Text(
+                              lastUpdatedTime,
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            )
+                            : Text("0")
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if(!isState)
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: ButtonTheme(
+                    minWidth: 195,
+                    height: 60,
+                    child: RaisedButton(
+                      textColor: Color.fromRGBO(255, 255, 255, 1),
+                      color: Theme.of(context).primaryColor,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StatewiseCases(),
+                          ),
+                        );
+                      },
+                      child: Text("StateWise"),
+                    ),
+                  ),
+                ),
+                Container(
+                  child: ButtonTheme(
+                    height: 60,
+                    minWidth: 195,
+                    child: RaisedButton(
+                      textColor: Color.fromRGBO(255,255,255,1),
+                      color: Theme.of(context).primaryColor,
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Worldwide(),
+                          ),
+                        );
+                      },
+                      child: Text("WorldWide"),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+//Code Completed on 12/10/2020

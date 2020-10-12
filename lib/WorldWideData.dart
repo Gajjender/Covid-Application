@@ -76,7 +76,7 @@ class _WorldWideState extends State<Worldwide>{
                                           sectionSpace: 0,
                                           centerSpaceRadius: 45,
                                           borderData:
-                                              F1BorderData(show: false),
+                                              FlBorderData(show: false),
                                           sections: [
                                             PieChartSectionData(
                                               showTitle: false,

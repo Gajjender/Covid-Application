@@ -17,7 +17,7 @@ class _StatewiseCasesState extends State<StatewiseCases>{
 
   Future getData() async{
     http.Response response =
-        await http.get('https://api.covid19india.org/data.json'),
+        await http.get('https://api.covid19india.org/data.json');
         
     data = json.decode(response.body);
     setState(() {
@@ -116,5 +116,4 @@ class _StatewiseCasesState extends State<StatewiseCases>{
       ), 
     );
   }
-
-}
+}//Code Completed on 12/10/2020
