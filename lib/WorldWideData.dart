@@ -239,7 +239,132 @@ class _WorldWideState extends State<Worldwide>{
         ),
       ),
       Container(
-        //Today's Code end here on 11/10
+        height: ((MediaQuery.of(context).size.height)-
+                (MediaQuery.of(context).padding.top)-
+                (kToolbarHeight)-
+                (kBottomNavigationBarHeight))*
+            0.19,
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Card(
+                color: Color.fromRGBO(230, 230, 230, 1),
+                elevation: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Recovered",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 17)),
+                    recovered != null
+                        ? Text(
+                            recovered,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          )
+                        : Text("0"),    
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Card(
+                elevation: 5,
+                color: Color.fromRGBO(230, 230, 230, 1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Deaths",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 17)),
+                    deaths != null
+                        ? Text(
+                            deaths,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          )
+                        : Text("0")  
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Container(
+        height: ((MediaQuery.of(context).size.height)-
+                 (MediaQuery.of(context).padding.top))-
+                 (kToolbarHeight)-
+                 (kBottomNavigationBarHeight)*
+            0.19,
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Card(
+                color: Color.fromRGBO(230, 230, 230, 1),
+                elevation: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Today Cases",
+                        style : TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 17)),
+                    todayCases != null
+                        ? Text(
+                            todayCases,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          )
+                        : Text("0")  
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Card(
+                color: Color.fromRGBO(230, 230, 230, 1),
+                elevation: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Today Deaths",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 17)),
+                    todayDeaths != null
+                        ? Text(
+                            todayDeaths,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            )
+                          )
+                        : Text("0")  
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Container(
+        //We'll Continue here by tomorrow
+      )
       )
               ),
             ],
