@@ -363,13 +363,48 @@ class _WorldWideState extends State<Worldwide>{
         ),
       ),
       Container(
-        //We'll Continue here by tomorrow
-      )
-      )
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        height: ((MediaQuery.of(context).size.height)-
+                 (MediaQuery.of(context).padding.top)-
+                 (kToolbarHeight)-
+                 (kBottomNavigationBarHeight))*
+           0.13,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Card(
+                color: Color.fromRGBO(230, 230, 230, 1),
+                elevation: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Affected Country",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 17)),
+                    affectedCountries != null
+                        ? Text(
+                            affectedCountries,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                        )
+                        : Text("0"),
+                ],
+               ),
               ),
-            ],
-          )
-    )
+            ),
+          ],
+        ),   
+      ),     
+    ],
+  )
+  : new Center(
+    child: new CircularProgressIndicator(),
+  ),
+      );
   }
-
 }
+//WorldWideData Code Completed
