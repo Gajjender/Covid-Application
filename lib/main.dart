@@ -16,22 +16,22 @@ class MyApp extends StatefulWidget{
 
 
 class _MyAppState extends State<MyApp>{
-  Map Data;
-  List Cases;
+  Map data;
+  List cases;
 
   Future getData() async{
     try{
       http.Response response= 
       await http.get('https://api.covid19india.org/data.json');
 
-      Data=json.decode(response.body);
+      data=json.decode(response.body);
       setState(() {
-        Cases=Data["StateWise"];
-        active=Cases[0]["Active"];
-        confirmed=Cases[0]["Confirmed"];
-        recovered=Cases[0]["Recovered"];
-        deaths=Cases[0]["Deaths"];
-        lastUpdatedTime=Cases[0]["LastUpdatedTime"];
+        cases=data["StateWise"];
+        active=cases[0]["Active"];
+        confirmed=cases[0]["Confirmed"];
+        recovered=cases[0]["Recovered"];
+        deaths=cases[0]["Deaths"];
+        lastUpdatedTime=cases[0]["LastUpdatedTime"];
         check=true;
       });
     } catch(e) {}

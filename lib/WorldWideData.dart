@@ -1,3 +1,4 @@
+import 'package:http/http.dart' as http;
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class _WorldWideState extends State<Worldwide>{
                                       child: PieChart(
                                         PieChartData(
                                           startDegreeOffset: 10,
-                                          sectionSpace: 0,
+                                          sectionsSpace: 0,
                                           centerSpaceRadius: 45,
                                           borderData:
                                               FlBorderData(show: false),
@@ -199,12 +200,12 @@ class _WorldWideState extends State<Worldwide>{
                                 fontSize: 17)),
                           cases!=null
                           ? Text(
-                            confirm,
+                            confirmed,
                             style: TextStyle(
                               color: Theme.of(context).primaryColor,
                             ),
                           )
-                        : Text("0")
+                          : Text("0")
                   ],
                 ),
               ),  
