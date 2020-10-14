@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert' show json;
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ String confirmed,
     recovered,
     affectedCountries,
     todayDeaths,
-    todayCases,
+    todayCases;
 bool dataFetched = false;
 
 class Worldwide extends StatefulWidget{
@@ -43,7 +44,7 @@ class _WorldWideState extends State<Worldwide>{
   }
 
   @override
-  Widget Build(BuildContext context){
+  Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(title: Text("Covid-Application")),
@@ -87,8 +88,9 @@ class _WorldWideState extends State<Worldwide>{
                                             ),
                                             PieChartSectionData(
                                               showTitle: false,
-                                              title: "Recovered"
-                                              color: Theme.of(context).primaryColor,
+                                              title: "Recovered",
+                                              color: Theme.of(context)
+                                              .primaryColor,
                                               value: double.parse(recovered),
                                             ),
                                             PieChartSectionData(
