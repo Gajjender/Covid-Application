@@ -56,12 +56,12 @@ class _MyAppState extends State<MyApp>{
         home: Scaffold(
           body: check
               ? IndiaCases(
-                active=active,
-                confirmed=confirmed,
-                deaths=deaths,
-                recovered=recovered,
-                lastUpdatedTime=lastUpdatedTime,
-                isState=false,
+                active : active,
+                confirmed : confirmed,
+                deaths : deaths,
+                recovered : recovered,
+                lastUpdatedTime : lastUpdatedTime,
+                isState : false,
               )
               : new Center(child: CircularProgressIndicator()),
 

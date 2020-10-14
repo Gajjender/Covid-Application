@@ -11,7 +11,7 @@ String confirmed,
     affectedCountries,
     todayDeaths,
     todayCases,
-bool dataFetched=false;
+bool dataFetched = false;
 
 class Worldwide extends StatefulWidget{
   @override
